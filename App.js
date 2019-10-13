@@ -3,7 +3,7 @@ import { StyleSheet, View } from 'react-native';
 import Blink from './components/Blink';
 import {
   ThemeProvider,
-  Tile,
+  Card,
   Button,
   Text,
   Header
@@ -16,9 +16,9 @@ const theme = {
       name: 'sc-telegram'
     }
   },
-  Tile: {
-    height: 50,
-    width: 50
+  Card: {
+    height: 165,
+    width: 165
   }
 };
 
@@ -34,8 +34,41 @@ export default function App() {
           />
         </View>
 
-        <View style={styles.bodyPartTile}>
-          <Tile featured caption='Chesticles' />
+        <View style={styles.bodyCardContainer}>
+          <View>
+            <Card
+              containerStyle={{ backgroundColor: '#95efde' }}
+              title='Chest'
+            />
+          </View>
+
+          <View>
+            <Card
+              containerStyle={{ backgroundColor: '#fbd4ab' }}
+              title='Back'
+            />
+          </View>
+
+          <View>
+            <Card
+              containerStyle={{ backgroundColor: '#e4b1e4' }}
+              title='Arms'
+            />
+          </View>
+
+          <View>
+            <Card
+              containerStyle={{ backgroundColor: '#aedaf5' }}
+              title='Legs'
+            />
+          </View>
+
+          <View>
+            <Card
+              containerStyle={{ backgroundColor: '#f4b4b0' }}
+              title='Shoulders'
+            />
+          </View>
         </View>
       </ThemeProvider>
     </View>
@@ -47,14 +80,16 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff'
   },
-  bodyPartTile: {
-    flex: 1
-  },
-  blink: {
-    flex: 1
-  },
   header: {
     flex: 1,
     alignSelf: 'stretch'
+  },
+  bodyCardContainer: {
+    flex: 7,
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    alignItems: 'stretch',
+    alignContent: 'stretch',
+    justifyContent: 'center',
   }
 });
