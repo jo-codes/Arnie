@@ -1,26 +1,13 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 import Blink from './components/Blink';
-import {
-  ThemeProvider,
-  Card,
-  Button,
-  Text,
-  Header
-} from 'react-native-elements';
+import { ThemeProvider, Card, Header } from 'react-native-elements';
 
 const theme = {
-  Button: {
-    icon: {
-      type: 'evilicon',
-      name: 'sc-telegram'
-    }
-  },
-  Card: {
-    height: 165,
-    width: 165
+  Header: {
+    backgroundColor: "#f7f7f7"
   }
-};
+}
 
 export default function App() {
   return (
@@ -28,46 +15,35 @@ export default function App() {
       <ThemeProvider theme={theme}>
         <View style={styles.header}>
           <Header
-            leftComponent={{ icon: 'menu', color: '#fff' }}
-            centerComponent={{ text: 'Arnie', style: { color: '#fff' } }}
-            rightComponent={{ icon: 'home', color: '#fff' }}
+            leftComponent={{ icon: 'menu', color: '#0f0f0f' }}
+            centerComponent={{ text: 'Arnie', style: { color: '#0f0f0f' } }}
+            rightComponent={{ icon: 'home', color: '#0f0f0f' }}
           />
         </View>
 
-        <View style={styles.bodyCardContainer}>
+        <View style={styles.bodyContainer}>
           <View>
-            <Card
-              containerStyle={{ backgroundColor: '#95efde' }}
-              title='Chest'
-            />
+            <Card title='Chest' />
           </View>
 
           <View>
-            <Card
-              containerStyle={{ backgroundColor: '#fbd4ab' }}
-              title='Back'
-            />
+            <Card title='Back' />
           </View>
 
           <View>
-            <Card
-              containerStyle={{ backgroundColor: '#e4b1e4' }}
-              title='Arms'
-            />
+            <Card title='Arms' />
           </View>
 
           <View>
-            <Card
-              containerStyle={{ backgroundColor: '#aedaf5' }}
-              title='Legs'
-            />
+            <Card title='Legs' />
           </View>
 
           <View>
-            <Card
-              containerStyle={{ backgroundColor: '#f4b4b0' }}
-              title='Shoulders'
-            />
+            <Card title='Shoulders' />
+          </View>
+
+          <View>
+            <Card title='Acc. / Misc' />
           </View>
         </View>
       </ThemeProvider>
@@ -84,12 +60,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignSelf: 'stretch'
   },
-  bodyCardContainer: {
-    flex: 7,
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    alignItems: 'stretch',
-    alignContent: 'stretch',
-    justifyContent: 'center',
+  bodyContainer: {
+    flex: 7
   }
 });
