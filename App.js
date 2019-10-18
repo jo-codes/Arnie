@@ -1,30 +1,33 @@
 import * as React from 'react';
-import { Button, View, Text } from 'react-native';
+import { View, Image, StyleSheet } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
+import { ThemeProvider, Text, Button } from 'react-native-elements';
+
+theme = {};
 
 class HomeScreen extends React.Component {
-  static navigationOptions = ({ navigation }) => {
-    return {
-      title: navigation.getParam('titleParam', 'A Nested Details Screen')
-    };
+  static navigationOptions = {
+    title: 'Home'
   };
 
   render() {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-        <Text>Home Screen</Text>
-        <Button
-          title='Go to Details'
-          onPress={() => this.props.navigation.navigate('Details')}
-        />
+        <ThemeProvider theme={theme}>
+          <Image
+            style={{ width: 50, height: 50 }}
+            source={require('./images/muscleGroupIcons/chest.png')}
+          />
 
-        <Button
-          title='Update the title'
-          onPress={() =>
-            this.props.navigation.setParams({ titleParam: 'Updated!' })
-          }
-        />
+          <Text>Home Screen</Text>
+          <Button
+            title='Go to Details'
+            onPress={() => this.props.navigation.navigate('Details')}
+          />
+
+          
+        </ThemeProvider>
       </View>
     );
   }
@@ -59,14 +62,7 @@ const AppNavigator = createStackNavigator(
       headerTintColor: '#fff',
       headerTitleStyle: {
         fontWeight: 'bold'
-      },
-      headerRight: (
-        <Button
-          onPress={() => alert('This is a button!')}
-          title="Info"
-          color="#fff"
-        />
-      )
+      }
     }
   }
 );
