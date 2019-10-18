@@ -1,66 +1,74 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import Blink from './components/Blink';
-import { ThemeProvider, Card, Header } from 'react-native-elements';
+import * as React from 'react';
+import { Button, View, Text } from 'react-native';
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 
-const theme = {
-  Header: {
-    backgroundColor: "#f7f7f7"
+class HomeScreen extends React.Component {
+  static navigationOptions = ({ navigation }) => {
+    return {
+      title: navigation.getParam('titleParam', 'A Nested Details Screen')
+    };
+  };
+
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>Home Screen</Text>
+        <Button
+          title='Go to Details'
+          onPress={() => this.props.navigation.navigate('Details')}
+        />
+
+        <Button
+          title='Update the title'
+          onPress={() =>
+            this.props.navigation.setParams({ titleParam: 'Updated!' })
+          }
+        />
+      </View>
+    );
   }
 }
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <ThemeProvider theme={theme}>
-        <View style={styles.header}>
-          <Header
-            leftComponent={{ icon: 'menu', color: '#0f0f0f' }}
-            centerComponent={{ text: 'Arnie', style: { color: '#0f0f0f' } }}
-            rightComponent={{ icon: 'home', color: '#0f0f0f' }}
-          />
-        </View>
+class DetailsScreen extends React.Component {
+  static navigationOptions = {
+    title: 'Details'
+  };
 
-        <View style={styles.bodyContainer}>
-          <View>
-            <Card title='Chest' />
-          </View>
-
-          <View>
-            <Card title='Back' />
-          </View>
-
-          <View>
-            <Card title='Arms' />
-          </View>
-
-          <View>
-            <Card title='Legs' />
-          </View>
-
-          <View>
-            <Card title='Shoulders' />
-          </View>
-
-          <View>
-            <Card title='Acc. / Misc' />
-          </View>
-        </View>
-      </ThemeProvider>
-    </View>
-  );
+  render() {
+    return (
+      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+        <Text>Details Screen</Text>
+      </View>
+    );
+  }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff'
+const AppNavigator = createStackNavigator(
+  {
+    Home: HomeScreen,
+    Details: DetailsScreen
   },
-  header: {
-    flex: 1,
-    alignSelf: 'stretch'
-  },
-  bodyContainer: {
-    flex: 7
+  {
+    initialRouteName: 'Home',
+    /* The header config from HomeScreen is now here */
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: '#f4511e'
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold'
+      },
+      headerRight: (
+        <Button
+          onPress={() => alert('This is a button!')}
+          title="Info"
+          color="#fff"
+        />
+      )
+    }
   }
-});
+);
+
+export default createAppContainer(AppNavigator);
