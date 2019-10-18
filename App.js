@@ -2,9 +2,15 @@ import * as React from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import { ThemeProvider, Text, Button } from 'react-native-elements';
+import { ThemeProvider, Text, Button, ListItem } from 'react-native-elements';
 
-theme = {};
+theme = {
+  Button: {
+    buttonStyle: {
+      backgroundColor: '#6b52ae'
+    }
+  }
+};
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -15,7 +21,7 @@ class HomeScreen extends React.Component {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <ThemeProvider theme={theme}>
-          <Image
+          {/* <Image
             style={{ width: 50, height: 50 }}
             source={require('./images/muscleGroupIcons/chest.png')}
           />
@@ -24,9 +30,9 @@ class HomeScreen extends React.Component {
           <Button
             title='Go to Details'
             onPress={() => this.props.navigation.navigate('Details')}
-          />
+          /> */}
 
-          
+          <ListItem style={styles.list} title="Chest" leftAvatar={{source: require('./images/muscleGroupIcons/chest.png')}} bottomDivider />
         </ThemeProvider>
       </View>
     );
@@ -57,7 +63,7 @@ const AppNavigator = createStackNavigator(
     /* The header config from HomeScreen is now here */
     defaultNavigationOptions: {
       headerStyle: {
-        backgroundColor: '#f4511e'
+        backgroundColor: '#6b52ae'
       },
       headerTintColor: '#fff',
       headerTitleStyle: {
@@ -66,5 +72,13 @@ const AppNavigator = createStackNavigator(
     }
   }
 );
+
+const styles = StyleSheet.create({
+  list: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+});
 
 export default createAppContainer(AppNavigator);
