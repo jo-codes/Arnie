@@ -2,18 +2,19 @@ import * as React from 'react';
 import { View, Image, StyleSheet } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import { ThemeProvider, Text, Button, ListItem } from 'react-native-elements';
+import {
+  ThemeProvider,
+  Text,
+  Button,
+  ListItem,
+  Divider
+} from 'react-native-elements';
 
-theme = {
-  Button: {
-    buttonStyle: {
-      backgroundColor: '#6b52ae'
-    }
-  }
-};
+theme = {};
 
 class HomeScreen extends React.Component {
   static navigationOptions = {
+    headerTitleStyle: { textAlign: 'center', flex: 1 },
     title: 'Home'
   };
 
@@ -21,18 +22,83 @@ class HomeScreen extends React.Component {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <ThemeProvider theme={theme}>
-          {/* <Image
-            style={{ width: 50, height: 50 }}
-            source={require('./images/muscleGroupIcons/chest.png')}
+          <ListItem
+            style={styles.list}
+            title='Chest'
+            leftAvatar={{
+              source: require('./images/muscleGroupIcons/chest.jpg')
+            }}
+            chevron={{ color: '#6b52ae' }}
           />
 
-          <Text>Home Screen</Text>
-          <Button
-            title='Go to Details'
-            onPress={() => this.props.navigation.navigate('Details')}
-          /> */}
+          <Divider
+            style={{ alignSelf: 'stretch', backgroundColor: '#6b52ae' }}
+          />
 
-          <ListItem style={styles.list} title="Chest" leftAvatar={{source: require('./images/muscleGroupIcons/chest.png')}} bottomDivider />
+          <ListItem
+            style={styles.list}
+            title='Back'
+            leftAvatar={{
+              source: require('./images/muscleGroupIcons/back.jpg')
+            }}
+            chevron={{ color: '#6b52ae' }}
+          />
+
+          <Divider
+            style={{ alignSelf: 'stretch', backgroundColor: '#6b52ae' }}
+          />
+
+          <ListItem
+            style={styles.list}
+            title='Arms'
+            leftAvatar={{
+              source: require('./images/muscleGroupIcons/arms.jpg')
+            }}
+            chevron={{ color: '#6b52ae' }}
+          />
+
+          <Divider
+            style={{ alignSelf: 'stretch', backgroundColor: '#6b52ae' }}
+          />
+
+          <ListItem
+            style={styles.list}
+            title='Legs'
+            leftAvatar={{
+              source: require('./images/muscleGroupIcons/legs.jpg')
+            }}
+            chevron={{ color: '#6b52ae' }}
+          />
+
+          <Divider
+            style={{ alignSelf: 'stretch', backgroundColor: '#6b52ae' }}
+          />
+
+          <ListItem
+            style={styles.list}
+            title='Shoulders'
+            leftAvatar={{
+              source: require('./images/muscleGroupIcons/shoulders.jpg')
+            }}
+            chevron={{ color: '#6b52ae' }}
+          />
+
+          <Divider
+            style={{ alignSelf: 'stretch', backgroundColor: '#6b52ae' }}
+          />
+
+          <ListItem
+            style={styles.list}
+            title='Accessories'
+            leftAvatar={{
+              source: require('./images/muscleGroupIcons/accessories.jpg')
+            }}
+            chevron={{ color: '#6b52ae' }}
+          />
+
+          <Divider
+            style={{ alignSelf: 'stretch', backgroundColor: '#6b52ae' }}
+          />
         </ThemeProvider>
       </View>
     );
