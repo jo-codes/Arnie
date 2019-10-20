@@ -3,8 +3,8 @@ import { View, StyleSheet } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { ThemeProvider } from 'react-native-elements';
-import MuscleGroups from './components/MuscleGroups';
-import ChestMenu from './components/muscleGroupMenus/ChestMenu';
+import MuscleGroups from './components/Groups';
+import ChestMenu from './components/groupMenus/ChestMenu';
 
 theme = {
   Divider: {

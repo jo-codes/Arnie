@@ -14,7 +14,7 @@ class ChestMenu extends React.Component {
           style={styles.list}
           title='Chest bruh'
           leftAvatar={{
-            source: require('../../images/muscleGroupIcons/chest.jpg')
+            source: require('../../images/icons/chest.jpg')
           }}
           chevron={{ color: '#6b52ae' }}
         />
