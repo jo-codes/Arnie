@@ -3,8 +3,15 @@ import { View, StyleSheet } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { ThemeProvider } from 'react-native-elements';
-import MuscleGroups from './components/Groups';
-import ChestMenu from './components/groupMenus/ChestMenu';
+import Groups from './components/Groups';
+import {
+  ChestMenu,
+  BackMenu,
+  ArmsMenu,
+  LegsMenu,
+  ShouldersMenu,
+  AccessoriesMenu
+} from './components/groupMenus/ExMenu';
 
 theme = {
   Divider: {
@@ -24,7 +31,7 @@ class HomeScreen extends React.Component {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
         <ThemeProvider theme={theme}>
-          <MuscleGroups />
+          <Groups />
         </ThemeProvider>
       </View>
     );
@@ -34,7 +41,12 @@ class HomeScreen extends React.Component {
 const AppNavigator = createStackNavigator(
   {
     Home: HomeScreen,
-    Chest: ChestMenu
+    Chest: ChestMenu,
+    Back: BackMenu,
+    Arms: ArmsMenu,
+    Legs: LegsMenu,
+    Shoulders: ShouldersMenu,
+    Accessories: AccessoriesMenu
   },
   {
     initialRouteName: 'Home',

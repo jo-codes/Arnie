@@ -1,21 +1,17 @@
 import React from 'react';
-import { View, StyleSheet, Image } from 'react-native';
-import { ListItem, Divider, Text } from 'react-native-elements';
+import { View, StyleSheet } from 'react-native';
+import { ListItem, Divider } from 'react-native-elements';
+import { withNavigation } from 'react-navigation';
 
-class ChestMenu extends React.Component {
-  static navigationOptions = {
-    title: 'Chest',
-    headerTitleStyle: { textAlign: 'center', flex: 1 }
-  };
-
+class Groups extends React.Component {
   render() {
     const muscleGroups = [
-      'chest',
-      'back',
-      'arms',
-      'legs',
-      'shoulders',
-      'accessories'
+      'Chest',
+      'Back',
+      'Arms',
+      'Legs',
+      'Shoulders',
+      'Accessories'
     ];
 
     const icons = {
@@ -30,18 +26,20 @@ class ChestMenu extends React.Component {
     var groups = [];
 
     for (var i = 0; i < muscleGroups.length; i++) {
+      const currentMuscle = muscleGroups[i];
       groups.push(
-        <ListItem
-          key={i}
-          style={styles.list}
-          title={
-            muscleGroups[i].charAt(0).toUpperCase() + muscleGroups[i].slice(1)
-          }
-          chevron={{ color: '#6b52ae' }}
-          leftAvatar={{
-            source: icons[muscleGroups[i]]
-          }}
-        />
+        <View style={styles.list} key={i}>
+          <ListItem
+            style={styles.list}
+            title={muscleGroups[i]}
+            chevron={{ color: '#6b52ae' }}
+            leftAvatar={{
+              source: icons[muscleGroups[i].toLowerCase()]
+            }}
+            onPress={() => this.props.navigation.navigate(currentMuscle)}
+          />
+          <Divider />
+        </View>
       );
     }
 
@@ -57,4 +55,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ChestMenu;
+export default withNavigation(Groups);
