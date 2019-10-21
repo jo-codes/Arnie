@@ -14,15 +14,34 @@ class EquipmentMenu extends React.Component {
       machine: require('../images/equipmentIcons/machine.png')
     };
 
-    const exercises = Object.entries(ExObj).map(([group, equip]) => {
-      return <Text key={Math.random()}>{equip.toString()}</Text>;
-    });
+    const equipToMap = 'Chest';
 
-    return (
-      <View style={styles.list}>
-        <Text>{exercises}</Text>
-      </View>
+    const tempEquipment = Object.entries(ExObj[equipToMap]).map(
+      ([type, exercise]) => {
+        return type.toString();
+      }
     );
+
+    equipment = [];
+
+    for (var i = 0; i < tempEquipment.length; i++) {
+      const currentEquip = tempEquipment[i];
+      equipment.push(
+        <View style={styles.list} key={i}>
+          <ListItem
+            style={styles.list}
+            title={tempEquipment[i]}
+            chevron={{ color: '#6b52ae' }}
+            leftAvatar={{
+              source: icons[tempEquipment[i].toLowerCase()]
+            }}
+          />
+          <Divider />
+        </View>
+      );
+    }
+
+    return <View style={styles.list}>{equipment}</View>;
   }
 }
 
