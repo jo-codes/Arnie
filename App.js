@@ -4,14 +4,7 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import { ThemeProvider } from 'react-native-elements';
 import Groups from './components/Groups';
-import {
-  ChestMenu,
-  BackMenu,
-  ArmsMenu,
-  LegsMenu,
-  ShouldersMenu,
-  AccessoriesMenu
-} from './components/ExMenu';
+import EquipmentMenu from './components/Equipment';
 
 theme = {
   Divider: {
@@ -41,12 +34,7 @@ class HomeScreen extends React.Component {
 const AppNavigator = createStackNavigator(
   {
     Home: HomeScreen,
-    Chest: ChestMenu,
-    Back: BackMenu,
-    Arms: ArmsMenu,
-    Legs: LegsMenu,
-    Shoulders: ShouldersMenu,
-    Accessories: AccessoriesMenu
+    Equipment: EquipmentMenu
   },
   {
     initialRouteName: 'Home',

@@ -36,7 +36,7 @@ class Groups extends React.Component {
             leftAvatar={{
               source: icons[muscleGroups[i].toLowerCase()]
             }}
-            onPress={() => this.props.navigation.navigate(currentMuscle)}
+            onPress={() => this.props.navigation.navigate('Equipment')}
           />
           <Divider />
         </View>
