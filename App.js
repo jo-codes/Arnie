@@ -11,7 +11,7 @@ import {
   LegsMenu,
   ShouldersMenu,
   AccessoriesMenu
-} from './components/groupMenus/ExMenu';
+} from './components/ExMenu';
 
 theme = {
   Divider: {

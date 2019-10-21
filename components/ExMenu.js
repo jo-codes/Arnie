@@ -2,6 +2,15 @@ import * as React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { ListItem, Divider } from 'react-native-elements';
 
+const icons = {
+  chest: require('../images/muscleGroupIcons/chest.jpg'),
+  back: require('../images/muscleGroupIcons/back.jpg'),
+  arms: require('../images/muscleGroupIcons/arms.jpg'),
+  legs: require('../images/muscleGroupIcons/legs.jpg'),
+  shoulders: require('../images/muscleGroupIcons/shoulders.jpg'),
+  accessories: require('../images/muscleGroupIcons/accessories.jpg')
+};
+
 class ChestMenu extends React.Component {
   static navigationOptions = {
     title: 'Chest',
@@ -15,7 +24,7 @@ class ChestMenu extends React.Component {
           style={styles.list}
           title='Chest'
           leftAvatar={{
-            source: require('../../images/icons/chest.jpg')
+            source: icons['chest']
           }}
           chevron={{ color: '#6b52ae' }}
         />
@@ -39,7 +48,7 @@ class BackMenu extends React.Component {
           style={styles.list}
           title='Back'
           leftAvatar={{
-            source: require('../../images/icons/back.jpg')
+            source: icons['back']
           }}
           chevron={{ color: '#6b52ae' }}
         />
@@ -63,7 +72,7 @@ class ArmsMenu extends React.Component {
           style={styles.list}
           title='Arms'
           leftAvatar={{
-            source: require('../../images/icons/arms.jpg')
+            source: icons['arms']
           }}
           chevron={{ color: '#6b52ae' }}
         />
@@ -87,7 +96,7 @@ class LegsMenu extends React.Component {
           style={styles.list}
           title='Legs'
           leftAvatar={{
-            source: require('../../images/icons/legs.jpg')
+            source: icons['legs']
           }}
           chevron={{ color: '#6b52ae' }}
         />
@@ -111,7 +120,7 @@ class ShouldersMenu extends React.Component {
           style={styles.list}
           title='Shoulders'
           leftAvatar={{
-            source: require('../../images/icons/shoulders.jpg')
+            source: icons['shoulders']
           }}
           chevron={{ color: '#6b52ae' }}
         />
@@ -135,7 +144,7 @@ class AccessoriesMenu extends React.Component {
           style={styles.list}
           title='Accessories'
           leftAvatar={{
-            source: require('../../images/icons/accessories.jpg')
+            source: icons['accessories']
           }}
           chevron={{ color: '#6b52ae' }}
         />

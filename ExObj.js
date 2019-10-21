@@ -25,7 +25,8 @@ exercises = {
         'Machine Chest Press',
         'Incline Machine Chest Press',
         'Decline Machine Chest Press',
-        'Pec Deck'
+        'Pec Deck',
+        'Machine Chest Fly'
       ]
     }
   }

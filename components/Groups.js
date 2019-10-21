@@ -15,12 +15,12 @@ class Groups extends React.Component {
     ];
 
     const icons = {
-      chest: require('../images/icons/chest.jpg'),
-      back: require('../images/icons/back.jpg'),
-      arms: require('../images/icons/arms.jpg'),
-      legs: require('../images/icons/legs.jpg'),
-      shoulders: require('../images/icons/shoulders.jpg'),
-      accessories: require('../images/icons/accessories.jpg')
+      chest: require('../images/muscleGroupIcons/chest.jpg'),
+      back: require('../images/muscleGroupIcons/back.jpg'),
+      arms: require('../images/muscleGroupIcons/arms.jpg'),
+      legs: require('../images/muscleGroupIcons/legs.jpg'),
+      shoulders: require('../images/muscleGroupIcons/shoulders.jpg'),
+      accessories: require('../images/muscleGroupIcons/accessories.jpg')
     };
 
     var groups = [];
