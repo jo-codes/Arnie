@@ -7,11 +7,11 @@ import ExObj from '../ExObj';
 class EquipmentMenu extends React.Component {
   render() {
     const icons = {
-      dumbbell: require('../images/equipmentIcons/dumbbell.png'),
-      barbell: require('../images/equipmentIcons/barbell.png'),
-      smith: require('../images/equipmentIcons/smith.png'),
-      cables: require('../images/equipmentIcons/cables.png'),
-      machine: require('../images/equipmentIcons/machine.png')
+      dumbbell: require('../images/equipmentIcons/dumbbell.jpg'),
+      barbell: require('../images/equipmentIcons/barbell.jpg'),
+      smith: require('../images/equipmentIcons/smith.jpg'),
+      cables: require('../images/equipmentIcons/cables.jpg'),
+      machine: require('../images/equipmentIcons/machine.jpg')
     };
 
     const equipToMap = 'Chest';
