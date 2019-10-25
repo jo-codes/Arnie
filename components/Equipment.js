@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { ListItem, Divider, Text } from 'react-native-elements';
+import { ListItem, Divider } from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
 import ExObj from '../ExObj';
 

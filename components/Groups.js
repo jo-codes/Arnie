@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { ListItem, Divider } from 'react-native-elements';
+import { ListItem, Divider, Text } from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
+import ExObj from '../ExObj';
 
 class Groups extends React.Component {
   render() {
@@ -23,18 +24,22 @@ class Groups extends React.Component {
       accessories: require('../images/muscleGroupIcons/accessories.jpg')
     };
 
-    var groups = [];
+    var groups = Object.entries(ExObj).map(([type, exercise]) => {
+      return type.toString();
+    });
 
-    for (var i = 0; i < muscleGroups.length; i++) {
-      const currentMuscle = muscleGroups[i];
-      groups.push(
+    var groupComponentArray = [];
+
+    for (var i = 0; i < groups.length; i++) {
+      const currentMuscle = groups[i];
+      groupComponentArray.push(
         <View style={styles.list} key={i}>
           <ListItem
             style={styles.list}
-            title={muscleGroups[i]}
+            title={groups[i]}
             chevron={{ color: '#6b52ae' }}
             leftAvatar={{
-              source: icons[muscleGroups[i].toLowerCase()]
+              source: icons[groups[i].toLowerCase()]
             }}
             onPress={() => this.props.navigation.navigate('Equipment')}
           />
@@ -43,7 +48,7 @@ class Groups extends React.Component {
       );
     }
 
-    return <View style={styles.list}>{groups}</View>;
+    return <View style={styles.list}>{groupComponentArray}</View>;
   }
 }
 
