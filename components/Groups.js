@@ -1,8 +1,9 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { ListItem, Divider } from 'react-native-elements';
+import { ThemeProvider, ListItem, Divider } from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
 import { exercises, icons } from '../ExObj';
+import theme from './componentThemes/MainTheme';
 
 class Groups extends React.Component {
   render() {
@@ -21,7 +22,7 @@ class Groups extends React.Component {
             title={groups[i]}
             chevron={{ color: '#6b52ae' }}
             leftAvatar={{
-              source: icons[groups[i].toLowerCase()]
+              source: icons.muscleGrougs[groups[i].toLowerCase()]
             }}
             onPress={() =>
               this.props.navigation.navigate('Equipment', {
@@ -34,7 +35,11 @@ class Groups extends React.Component {
       );
     }
 
-    return <View style={styles.list}>{groupComponentArray}</View>;
+    return (
+      <ThemeProvider theme={theme}>
+        <View style={styles.list}>{groupComponentArray}</View>
+      </ThemeProvider>
+    );
   }
 }
 

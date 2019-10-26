@@ -1,8 +1,9 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { ListItem, Divider, Text } from 'react-native-elements';
+import { ThemeProvider, ListItem, Divider } from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
 import { exercises, icons } from '../ExObj';
+import theme from './componentThemes/MainTheme';
 
 class EquipmentMenu extends React.Component {
   render() {
@@ -27,7 +28,7 @@ class EquipmentMenu extends React.Component {
             title={tempEquipment[i]}
             chevron={{ color: '#6b52ae' }}
             leftAvatar={{
-              source: icons[tempEquipment[i].toLowerCase()]
+              source: icons.exEquipment[tempEquipment[i].toLowerCase()]
             }}
           />
           <Divider />
@@ -35,7 +36,11 @@ class EquipmentMenu extends React.Component {
       );
     }
 
-    return <View style={styles.list}>{equipment}</View>;
+    return (
+      <ThemeProvider theme={theme}>
+        <View style={styles.list}>{equipment}</View>
+      </ThemeProvider>
+    );
   }
 }
 
