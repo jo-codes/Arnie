@@ -1,30 +1,12 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { ListItem, Divider, Text } from 'react-native-elements';
+import { ListItem, Divider } from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
-import ExObj from '../ExObj';
+import { exercises, icons } from '../ExObj';
 
 class Groups extends React.Component {
   render() {
-    const muscleGroups = [
-      'Chest',
-      'Back',
-      'Arms',
-      'Legs',
-      'Shoulders',
-      'Accessories'
-    ];
-
-    const icons = {
-      chest: require('../images/muscleGroupIcons/chest.jpg'),
-      back: require('../images/muscleGroupIcons/back.jpg'),
-      arms: require('../images/muscleGroupIcons/arms.jpg'),
-      legs: require('../images/muscleGroupIcons/legs.jpg'),
-      shoulders: require('../images/muscleGroupIcons/shoulders.jpg'),
-      accessories: require('../images/muscleGroupIcons/accessories.jpg')
-    };
-
-    var groups = Object.entries(ExObj).map(([type, exercise]) => {
+    var groups = Object.entries(exercises).map(([type, exercise]) => {
       return type.toString();
     });
 
@@ -41,7 +23,11 @@ class Groups extends React.Component {
             leftAvatar={{
               source: icons[groups[i].toLowerCase()]
             }}
-            onPress={() => this.props.navigation.navigate('Equipment', {muscleGroup: currentMuscle})}
+            onPress={() =>
+              this.props.navigation.navigate('Equipment', {
+                muscleGroup: currentMuscle
+              })
+            }
           />
           <Divider />
         </View>

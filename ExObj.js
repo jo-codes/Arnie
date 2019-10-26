@@ -1,4 +1,4 @@
-export default exercises = {
+const exercises = {
   Chest: {
     Barbell: [
       'Flat Barbell Bench Press, Incline Barbell Bench Press, Decline Barbell Bench Press'
@@ -155,3 +155,23 @@ export default exercises = {
     }
   }
 };
+
+const icons = {
+  // muscleGrougs: {
+  chest: require('./images/muscleGroupIcons/chest.jpg'),
+  back: require('./images/muscleGroupIcons/back.jpg'),
+  arms: require('./images/muscleGroupIcons/arms.jpg'),
+  legs: require('./images/muscleGroupIcons/legs.jpg'),
+  shoulders: require('./images/muscleGroupIcons/shoulders.jpg'),
+  accessories: require('./images/muscleGroupIcons/accessories.jpg'),
+  // },
+  // exEquipment: {
+  dumbbell: require('./images/equipmentIcons/dumbbell.jpg'),
+  barbell: require('./images/equipmentIcons/barbell.jpg'),
+  smith: require('./images/equipmentIcons/smith.jpg'),
+  cables: require('./images/equipmentIcons/cables.jpg'),
+  machine: require('./images/equipmentIcons/machine.jpg')
+  // }
+};
+
+export { exercises, icons };

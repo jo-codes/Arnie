@@ -8,7 +8,7 @@ import EquipmentMenu from './components/Equipment';
 
 theme = {
   Divider: {
-    height: 1.5,
+    height: 3,
     alignSelf: 'stretch',
     backgroundColor: '#f1f1f1'
   }
