@@ -1,11 +1,13 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import { ListItem, Divider } from 'react-native-elements';
+import { ListItem, Divider, Text } from 'react-native-elements';
 import { withNavigation } from 'react-navigation';
 import ExObj from '../ExObj';
 
 class EquipmentMenu extends React.Component {
   render() {
+    const { params } = this.props.navigation.state;
+
     const icons = {
       dumbbell: require('../images/equipmentIcons/dumbbell.jpg'),
       barbell: require('../images/equipmentIcons/barbell.jpg'),
@@ -14,7 +16,7 @@ class EquipmentMenu extends React.Component {
       machine: require('../images/equipmentIcons/machine.jpg')
     };
 
-    const equipToMap = 'Chest';
+    const equipToMap = params.muscleGroup;
 
     const tempEquipment = Object.entries(ExObj[equipToMap]).map(
       ([type, exercise]) => {
