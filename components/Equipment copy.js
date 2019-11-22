@@ -11,7 +11,7 @@ class EquipmentMenu extends React.Component {
 
     const equipToMap = params.muscleGroup;
 
-    const tempEquipment = Object.entries(exercises.Groups[equipToMap]).map(
+    const tempEquipment = Object.entries(exercises[equipToMap]).map(
       ([type, exercise]) => {
         return type.toString();
       }

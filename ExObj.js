@@ -220,7 +220,7 @@ const exercises = {
 };
 
 const icons = {
-  muscleGrougs: {
+  muscleGroups: {
     chest: require('./images/muscleGroupIcons/chest.jpg'),
     back: require('./images/muscleGroupIcons/back.jpg'),
     arms: require('./images/muscleGroupIcons/arms.jpg'),
