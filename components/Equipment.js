@@ -41,15 +41,21 @@ class EquipmentMenu extends React.Component {
 
     equipToLoop = equipToLoop.toString().split(',');
 
-    const equipToPush = [];
+    var equipToPush = [];
 
     for (var i = 0; i < equipToLoop.length; i++) {
+      const current = equipToLoop[i]
       equipToPush.push(
         <View style={styles.list} key={i}>
           <ListItem
             style={styles.list}
             title={equipToLoop[i].toString()}
             chevron={{ color: '#6b52ae' }}
+            onPress={() =>
+              this.props.navigation.navigate('EquipDetailScreen', {
+                currentGroup: current
+              })
+            }
           />
           <Divider />
         </View>

@@ -5,6 +5,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { ThemeProvider, withTheme } from 'react-native-elements';
 import Groups from './components/Groups';
 import EquipmentMenu from './components/Equipment';
+import EquipDetails from './components/EquipDetails'
 import theme from './components/componentThemes/MainTheme';
 
 class HomeScreen extends React.Component {
@@ -27,7 +28,8 @@ class HomeScreen extends React.Component {
 const AppNavigator = createStackNavigator(
   {
     Home: HomeScreen,
-    Equipment: EquipmentMenu
+    Equipment: EquipmentMenu,
+    EquipDetailScreen: EquipDetails 
   },
   {
     initialRouteName: 'Home',
