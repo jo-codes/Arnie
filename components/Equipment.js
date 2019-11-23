@@ -8,39 +8,48 @@ import theme from './componentThemes/MainTheme';
 class EquipmentMenu extends React.Component {
   render() {
     const { params } = this.props.navigation.state;
+    const chestMap = Object.keys(exercises.Groups.Chest.ExType);
+    const backMap = Object.keys(exercises.Groups.Back.ExType);
+    const shoulderMap = Object.keys(exercises.Groups.Shoulders.Equipment);
+    const legMap = Object.keys(exercises.Groups.Legs.Part);
+    const accMap = Object.keys(exercises.Groups.Accessories.Part);
+    const hipsterMap = exercises.Groups.Hipsterflexers;
+    const armMap = Object.keys(exercises.Groups.Arms.Part);
 
-    const equipToMap = params.muscleGroup;
+    var equipToLoop = [];
 
-    const tempEquipment = Object.entries(exercises.Groups[equipToMap]).map(
-      ([type, exercise]) => {
-        if (type.toString() === 'Part') {
-          const part = exercises.Groups[equipToMap].Part;
-          return Object.keys(part).toString();
-        } else if (type.toString() === 'Equipment') {
-          const equip = exercises.Groups[equipToMap].Equipment;
-          return Object.keys(equip).toString();
-        } else if (type.toString() === 'ExType') {
-          const exType = exercises.Groups[equipToMap].ExType;
-          return Object.keys(exType).toString();
-        } else {
-          return exercises.Groups[equipToMap].toString();
-        }
-      }
-    );
+    if (params.muscleGroup === 'Chest') {
+      equipToLoop = chestMap;
+    } else if (params.muscleGroup === 'Back') {
+      equipToLoop = backMap;
+    } else if (params.muscleGroup === 'Arms') {
+      equipToLoop = armMap;
+    } else if (params.muscleGroup === 'Legs') {
+      equipToLoop = legMap;
+    } else if (params.muscleGroup === 'Accessories') {
+      equipToLoop = accMap;
+    } else if (params.muscleGroup === 'Shoulders') {
+      equipToLoop = shoulderMap;
+    } else if (params.muscleGroup === 'Hipsterflexers') {
+      equipToLoop = hipsterMap;
+    } else {
+      equipToLoop = 'You found a bug, please report';
+    }
 
-    equipment = [];
+    // yes, I know I can remove 7 lines of code by combining the "map" variables
+    // into the if statement, but it looks horrible and unclear that way
 
-    for (var i = 0; i < tempEquipment.length; i++) {
-      const currentEquip = tempEquipment[i];
-      equipment.push(
+    equipToLoop = equipToLoop.toString().split(',');
+
+    const equipToPush = [];
+
+    for (var i = 0; i < equipToLoop.length; i++) {
+      equipToPush.push(
         <View style={styles.list} key={i}>
           <ListItem
             style={styles.list}
-            title={tempEquipment[i]}
+            title={equipToLoop[i].toString()}
             chevron={{ color: '#6b52ae' }}
-            // leftAvatar={{
-            //   source: icons.exEquipment[tempEquipment[i].toLow<Text>{tempEquipment}</Text>erCase()]
-            // }}
           />
           <Divider />
         </View>
@@ -49,7 +58,7 @@ class EquipmentMenu extends React.Component {
 
     return (
       <ThemeProvider theme={theme}>
-        <View style={styles.list}>{equipment}</View>
+        <View style={styles.list}>{equipToPush}</View>
       </ThemeProvider>
     );
   }
