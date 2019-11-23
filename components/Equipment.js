@@ -44,7 +44,7 @@ class EquipmentMenu extends React.Component {
     var equipToPush = [];
 
     for (var i = 0; i < equipToLoop.length; i++) {
-      const current = equipToLoop[i]
+      const current = `${params.muscleGroup},${equipToLoop[i]}`
       equipToPush.push(
         <View style={styles.list} key={i}>
           <ListItem

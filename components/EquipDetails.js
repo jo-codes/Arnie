@@ -8,7 +8,25 @@ import theme from './componentThemes/MainTheme';
 class EquipDetails extends React.Component {
   render() {
     const { params } = this.props.navigation.state;
-    const currentGroup = params.currentGroup
+    const currentGroup = params.currentGroup.toString();
+
+    const groupToLoop = currentGroup.split(',');
+
+    const groupToPush = [];
+
+    for (var i = 0; i < groupToLoop.length; i++) {
+      groupToPush.push(
+        <View style={styles.list} key={i}>
+          <ListItem
+            style={styles.list}
+            title={groupToLoop[i].toString()}
+            chevron={{ color: '#6b52ae' }}
+          />
+          <Divider />
+        </View>
+      );
+    }
+
     // const chestMap = Object.keys(exercises.Groups.Chest.ExType);
     // const backMap = Object.keys(exercises.Groups.Back.ExType);
     // const shoulderMap = Object.keys(exercises.Groups.Shoulders.Equipment);
@@ -37,29 +55,11 @@ class EquipDetails extends React.Component {
     //   equipToLoop = 'You found a bug, please report';
     // }
 
-    // // yes, I know I can remove 7 lines of code by combining the "map" variables
-    // // into the if statement, but it looks horrible and unclear that way
-
     // equipToLoop = equipToLoop.toString().split(',');
-
-    // const equipToPush = [];
-
-    // for (var i = 0; i < equipToLoop.length; i++) {
-    //   equipToPush.push(
-    //     <View style={styles.list} key={i}>
-    //       <ListItem
-    //         style={styles.list}
-    //         title={equipToLoop[i].toString()}
-    //         chevron={{ color: '#6b52ae' }}
-    //       />
-    //       <Divider />
-    //     </View>
-    //   );
-    // }
 
     return (
       <ThemeProvider theme={theme}>
-        <View style={styles.list}><Text>{currentGroup}</Text></View>
+        <View style={styles.list}>{groupToPush}</View>
       </ThemeProvider>
     );
   }
